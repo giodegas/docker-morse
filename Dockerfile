@@ -7,7 +7,7 @@ RUN apt-get update && apt-get -y install git cmake
 # Install Morse Robotic simulator, stable release
 RUN git clone https://github.com/morse-simulator/morse -b 1.2_STABLE /usr/src/morse
 
-WORKDIR /usr/src/opensim
+WORKDIR /usr/src/morse
 
 RUN mkdir build && cd build
 RUN cmake ..
