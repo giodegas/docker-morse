@@ -9,7 +9,9 @@ RUN git clone https://github.com/morse-simulator/morse -b 1.2_STABLE /usr/src/mo
 
 WORKDIR /usr/src/morse
 
-RUN mkdir build && cd build
+RUN mkdir build
+WORKDIR /usr/src/morse/build
+
 RUN cmake ..
 
 RUN morse check
