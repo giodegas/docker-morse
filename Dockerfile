@@ -13,6 +13,6 @@ RUN mkdir build
 WORKDIR /usr/src/morse/build
 
 RUN cmake ..
-
+RUN make install
 RUN morse check
 
