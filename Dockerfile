@@ -17,6 +17,7 @@ WORKDIR /usr/src/morse
 
 RUN mkdir build
 WORKDIR /usr/src/morse/build
+ENV MORSE_BLENDER /opt/blender/blender-2.73-linux-glibc211-x86_64/blender
 
 RUN cmake ..
 RUN make install
