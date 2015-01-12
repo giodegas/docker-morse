@@ -3,7 +3,7 @@ FROM tutum/debian:wheezy
 MAINTAINER Giovanni De Gasperis <giovanni@giodegas.it>
 
 RUN apt-get update && apt-get -y install apt-utils wget git libfreetype6 libgl1-mesa-dev libglu1-mesa libxi-dev
-RUN apt-get -y install build-essential python3.2-dev pkg-config cmake 
+RUN apt-get -y install build-essential python3.4-dev pkg-config cmake 
 
 # get Blender executable
 RUN mkdir /opt/blender
