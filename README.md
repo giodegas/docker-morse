@@ -23,3 +23,7 @@ you should get this output log:
     AL lib: (EE) ALCplaybackOSS_open: Could not open /dev/dsp: No such file or directory
     * Blender and Morse are using Python 3.4.2. Alright.
     * Your environment is correctly setup to run MORSE.
+
+then you can interact with morse:
+
+    docker run -it giodegas/morse bash
