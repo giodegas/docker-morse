@@ -2,7 +2,7 @@ FROM tutum/debian:wheezy
 
 MAINTAINER Giovanni De Gasperis <giovanni@giodegas.it>
 
-RUN apt-get update && apt-get -y install curl
+RUN apt-get update && apt-get -y install curl build-essential
 
 # Python 3.4.2 setup - taken from http://github.com/docker-library/python/blob/master/3.4/Dockerfile
 
@@ -37,7 +37,7 @@ RUN cd /usr/local/bin \
 	&& ln -s python-config3 python-config
 
 RUN apt-get -y install apt-utils wget git libfreetype6 libgl1-mesa-dev libglu1-mesa libxi-dev
-RUN apt-get -y install build-essential python3.4 pkg-config cmake 
+RUN apt-get -y install pkg-config cmake 
 
 # get Blender executable
 RUN mkdir /opt/blender
