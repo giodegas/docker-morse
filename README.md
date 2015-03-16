@@ -27,3 +27,4 @@ you should get this output log:
 then you can interact with morse:
 
     docker run -it giodegas/morse bash
+    morse run <your_scene> -noaudio
