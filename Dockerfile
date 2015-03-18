@@ -61,5 +61,5 @@ ENV MORSE_BLENDER /opt/blender/blender-2.73-linux-glibc211-x86_64/blender
 
 RUN cmake ..
 RUN make install
-RUN morse check 
+RUN morse --noaudio check 
 
