@@ -40,7 +40,7 @@ RUN cd /usr/local/bin \
 	&& ln -s python3 python \
 	&& ln -s python-config3 python-config
 
-RUN apt-get -y install apt-utils wget git libfreetype6 libgl1-mesa-dev libglu1-mesa libxi-dev
+RUN apt-get -y install apt-utils wget git libfreetype6 libxi-dev
 RUN apt-get -y install pkg-config cmake 
 
 # get Blender executable
