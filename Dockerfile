@@ -51,7 +51,7 @@ RUN tar jxf blender-2.73.tar.bz2
 
 # Install Morse Robotic simulator, stable release
 WORKDIR /usr/src
-RUN git clone https://github.com/morse-simulator/morse -b 1.2.2
+RUN git clone https://github.com/morse-simulator/morse -b master
 
 WORKDIR /usr/src/morse
 
