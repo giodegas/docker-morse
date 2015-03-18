@@ -6,7 +6,7 @@
 to use it in your [docker](http://docker.com) setup:
 
     docker pull giodegas/morse
-    docker run -it giodegas/morse morse check
+    docker run -it giodegas/morse morse --noaudio check
     
 you should get this output log:
 
@@ -26,5 +26,11 @@ you should get this output log:
 
 then you can interact with morse:
 
-    docker run -it giodegas/morse bash
-    morse run <your_scene> -noaudio
+    docker run -it -e DISPLAY=$DISPLAY giodegas/morse bash
+    morse --noaudio run <your_scene> -noaudio
+
+if you have problem running under X, debug trying to make xterm to launch
+
+    docker run -it -e DISPLAY=$DISPLAY giodegas/morse xterm
+    
+or use [subuser](htts://github.com/subuser-security/subuser)
