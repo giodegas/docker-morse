@@ -1,6 +1,6 @@
 FROM tutum/debian:wheezy
 
-MAINTAINER Giovanni De Gasperis <giovanni@giodegas.it>
+MAINTAINER Giovanni De Gasperis @giodegas
 
 # System update and basic tools
 RUN apt-get update && apt-get -y install curl build-essential
