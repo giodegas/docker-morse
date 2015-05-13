@@ -3,10 +3,10 @@ FROM tutum/debian:wheezy
 MAINTAINER Giovanni De Gasperis @giodegas
 
 # System update and basic tools
-RUN apt-get update && apt-get -y install curl build-essential
+RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essential
 
-# 3D Mesa libraries and xterm to run X apps
-RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xterm
+# 3D Mesa libraries and xterm to run X apps, VNC server
+RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xterm vnc4server
 
 # Python 3.4.2 setup - taken from http://github.com/docker-library/python/blob/master/3.4/Dockerfile
 
