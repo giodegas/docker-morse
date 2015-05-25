@@ -26,11 +26,12 @@ you should get this output log:
 
 then you can interact with morse:
 
-    docker run -it -e DISPLAY=$DISPLAY giodegas/morse bash
+    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse /bin/bash
+    morse --noaudio create <your_scene>
     morse --noaudio run <your_scene> -noaudio
 
 if you have problem running under X, debug trying to make xterm to launch
 
-    docker run -it -e DISPLAY=$DISPLAY giodegas/morse xterm
+    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse xterm
     
 or use [subuser](https://github.com/subuser-security/subuser)
