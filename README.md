@@ -1,4 +1,4 @@
-# docker-morse
+# docker-morse-xvfb
 [Morse](https://github.com/morse-simulator/morse) robotic simulator in a docker container
 
 xvfb release - testing runtime case studies..
