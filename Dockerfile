@@ -6,8 +6,9 @@ MAINTAINER Giovanni De Gasperis @giodegas
 RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essential
 
 # 3D Mesa libraries and xterm to run X apps, VNC server
-RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xterm vnc4server
+RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xbase-clients xterm xvfb vnc4server
 
+# TODO: ENV LD_LIBRARY_PATH 
 # Python 3.4.2 setup - taken from http://github.com/docker-library/python/blob/master/3.4/Dockerfile
 
 # http://bugs.python.org/issue19846
@@ -40,8 +41,9 @@ RUN cd /usr/local/bin \
 	&& ln -s python3 python \
 	&& ln -s python-config3 python-config
 
-RUN apt-get -y install apt-utils wget git libfreetype6 libxi-dev
+RUN apt-get -y install apt-utils wget git libfreetype6 libxi-dev 
 RUN apt-get -y install pkg-config cmake 
+
 
 # get Blender executable
 RUN mkdir /opt/blender
