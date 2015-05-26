@@ -5,7 +5,7 @@
 
 to use it in your [docker](http://docker.com) setup:
 
-    docker pull giodegas/morse
+    docker pull giodegas/morse-xvfb
     docker run -it giodegas/morse morse --noaudio check
     
 you should get this output log:
@@ -26,12 +26,12 @@ you should get this output log:
 
 then you can interact with morse:
 
-    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse /bin/bash
+    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
     morse --noaudio create <your_scene>
     morse --noaudio run <your_scene> -noaudio
 
 if you have problem running under X, debug trying to make xterm to launch
 
-    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse xterm
+    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb xterm
     
 or use [subuser](https://github.com/subuser-security/subuser)
