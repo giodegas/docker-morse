@@ -32,7 +32,6 @@ then you can interact with morse:
 
 if you have problem running under X, debug trying to make xterm to launch
 
-    docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
-    xeyes &
+    $ docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
+    # xeyes &
     
-or use [subuser](https://github.com/subuser-security/subuser)
