@@ -30,7 +30,7 @@ then you can interact with morse:
     # morse --noaudio create <your_scene>
     # morse --noaudio run <your_scene> -noaudio
 
-if you have problem running under X, debug trying to make xterm to launch
+if you have problem running under X, debug trying to make x11-apps to launch
 
     $ docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
     # xeyes &
