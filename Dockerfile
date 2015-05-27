@@ -1,4 +1,4 @@
-FROM quantumobject/docker-baseimage
+FROM tianon/glxgears:latest
 
 MAINTAINER Giovanni De Gasperis @giodegas
 
