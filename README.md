@@ -1,11 +1,11 @@
-# docker-morse-xvfb
+# docker-morse-small
 [Morse](https://github.com/morse-simulator/morse) robotic simulator in a docker container
 
 xvfb release - testing runtime case studies..
 
 to use it in your [docker](http://docker.com) setup:
 
-    $ docker pull giodegas/morse-xvfb
+    $ docker pull giodegas/morse-small
     $ docker run -it giodegas/morse-xvfb morse --noaudio check
     
 you should get this output log:
@@ -26,12 +26,12 @@ you should get this output log:
 
 then you can interact with morse:
 
-    $ docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
+    $ docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-small /bin/bash
     # morse --noaudio create <your_scene>
     # morse --noaudio run <your_scene> -noaudio
 
 if you have problem running under X, debug trying to make x11-apps to launch
 
-    $ docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
+    $ docker exec -it -e DISPLAY=$DISPLAY giodegas/morse-small /bin/bash
     # xeyes &
     
