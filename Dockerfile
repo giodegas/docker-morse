@@ -70,6 +70,6 @@ RUN make clean
 WORKDIR /
 RUN rm -fr /usr/src/morse
 RUN morse --noaudio check 
-RUN apt-get -y remove build-essential
+RUN apt-get -y remove build-essential pkg-config cmake
 RUN apt-get -y autoremove
 
