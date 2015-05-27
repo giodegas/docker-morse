@@ -1,4 +1,4 @@
-FROM tutum/debian:wheezy
+FROM quantumobject/docker-baseimage
 
 MAINTAINER Giovanni De Gasperis @giodegas
 
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essent
 ENV TERM vt100
 
 # 3D Mesa libraries and xterm to run X apps, VNC server
-RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xbase-clients xterm xvfb vnc4server x11-apps mesa-utils
+RUN apt-get -y install x11-apps mesa-utils
 
 # TODO: ENV LD_LIBRARY_PATH 
 # Python 3.4.2 setup - taken from http://github.com/docker-library/python/blob/master/3.4/Dockerfile
@@ -26,6 +26,7 @@ RUN set -x \
 	&& ./configure --enable-shared \
 	&& make -j$(nproc) \
 	&& make install \
+	&& make clean \
 	&& ldconfig \
 	&& find /usr/local \
 		\( -type d -a -name test -o -name tests \) \
@@ -64,5 +65,8 @@ ENV MORSE_BLENDER /opt/blender/blender-2.73-linux-glibc211-x86_64/blender
 
 RUN cmake ..
 RUN make install
+RUN make clean
+WORKDIR /
+RUN rm -fr /usr/src/morse
 RUN morse --noaudio check 
 
