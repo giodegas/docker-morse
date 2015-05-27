@@ -7,7 +7,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essent
 ENV TERM vt100
 
 # 3D Mesa libraries and xterm to run X apps, VNC server
-RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xbase-clients xterm xvfb vnc4server mesa-utils
+RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev xbase-clients xterm xvfb vnc4server x11-apps mesa-utils
 
 # TODO: ENV LD_LIBRARY_PATH 
 # Python 3.4.2 setup - taken from http://github.com/docker-library/python/blob/master/3.4/Dockerfile
