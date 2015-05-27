@@ -27,7 +27,7 @@ you should get this output log:
 then you can interact with morse:
 
     $ docker start <container>
-    $ docker exec -it -e DISPLAY=$DISPLAY <container> /bin/bash
+    $ docker exec -it <container> /bin/bash
     # morse --noaudio create <your_scene>
     # morse --noaudio run <your_scene> -noaudio
 
