@@ -7,7 +7,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essent
 ENV TERM vt100
 
 # 3D Mesa libraries and xterm to run X apps, VNC server, Python3
-RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev x11-apps mesa-utils apt-utils wget git libfreetype6 libxi-dev pkg-config cmake python3-morse-simulator
+RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev x11-apps mesa-utils apt-utils wget git libfreetype6 libxi-dev pkg-config cmake
+RUN apt-get -y install python3-morse-simulator python3-morse-simulator-dev
 
 ENV LANG C.UTF-8
 
