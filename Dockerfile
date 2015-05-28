@@ -30,7 +30,9 @@ RUN mkdir build
 WORKDIR /usr/src/morse/build
 ENV MORSE_BLENDER /opt/blender/blender-2.73-linux-glibc211-x86_64/blender
 
-RUN cmake .. & make install & make clean
+RUN cmake .. 
+RUN make install 
+RUN make clean
 WORKDIR /
 RUN rm -fr /usr/src/morse
 RUN morse --noaudio check 
