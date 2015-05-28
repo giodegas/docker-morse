@@ -13,6 +13,7 @@ RUN apt-get -y install python3-morse-simulator python3-dev
 ENV LANG C.UTF-8
 
 ENV PYTHON_VERSION 3.4.2
+ENV CMAKE_LIBRARY_ARCHITECTURE x86_64-linux-gnu
 
 # get Blender executable
 RUN mkdir /opt/blender
