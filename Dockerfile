@@ -40,4 +40,4 @@ RUN rm -fr /usr/src/morse
 RUN morse --noaudio check 
 RUN apt-get -y remove build-essential pkg-config cmake
 RUN apt-get -y autoremove
-RUN rm -v /var/cache/apt/*.deb
+
