@@ -1,7 +1,7 @@
 # docker-morse-small
 [Morse](https://github.com/morse-simulator/morse) robotic simulator in a docker container
 
-xvfb release - testing runtime case studies..
+SMALL release - testing runtime case studies..
 
 to use it in your [docker](http://docker.com) setup:
 
