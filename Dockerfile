@@ -7,13 +7,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essent
 ENV TERM vt100
 
 # 3D Mesa libraries and xterm to run X apps, VNC server, Python3
-RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev x11-apps mesa-utils apt-utils wget git libfreetype6 libxi-dev pkg-config cmake python3-blender
+RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev x11-apps mesa-utils apt-utils wget git libfreetype6 libxi-dev pkg-config cmake python3-morse-simulator
 
-# TODO: ENV LD_LIBRARY_PATH 
-# Python 3.4.2 setup - taken from http://github.com/docker-library/python/blob/master/3.4/Dockerfile
-
-# http://bugs.python.org/issue19846
-# > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
 ENV LANG C.UTF-8
 
 ENV PYTHON_VERSION 3.4.2
