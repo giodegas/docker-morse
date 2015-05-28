@@ -1,4 +1,4 @@
-FROM tianon/glxgears:latest
+FROM quantumobject/docker-baseimage:latest
 
 MAINTAINER Giovanni De Gasperis @giodegas
 
@@ -18,41 +18,13 @@ ENV LANG C.UTF-8
 
 ENV PYTHON_VERSION 3.4.2
 
-RUN set -x \
-	&& mkdir -p /usr/src/python \
-	&& curl -SL "https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tar.xz" \
-		| tar -xJC /usr/src/python --strip-components=1 \
-	&& cd /usr/src/python \
-	&& ./configure --enable-shared \
-	&& make -j$(nproc) \
-	&& make install \
-	&& make clean \
-	&& ldconfig \
-	&& find /usr/local \
-		\( -type d -a -name test -o -name tests \) \
-		-o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-		-exec rm -rf '{}' + \
-	&& rm -rf /usr/src/python
-
-# make some useful symlinks that are expected to exist
-RUN cd /usr/local/bin \
-	&& ln -s easy_install-3.4 easy_install \
-	&& ln -s idle3 idle \
-	&& ln -s pip3 pip \
-	&& ln -s pydoc3 pydoc \
-	&& ln -s python3 python \
-	&& ln -s python-config3 python-config
-
-RUN apt-get -y install apt-utils wget git libfreetype6 libxi-dev 
-RUN apt-get -y install pkg-config cmake 
-
+RUN apt-get -y install apt-utils wget git libfreetype6 libxi-dev pkg-config cmake python3-blender 
 
 # get Blender executable
 RUN mkdir /opt/blender
-RUN wget -q http://mirror.cs.umn.edu/blender.org/release/Blender2.73/blender-2.73-linux-glibc211-x86_64.tar.bz2 -O /opt/blender/blender-2.73.tar.bz2
 WORKDIR /opt/blender
-RUN tar jxf blender-2.73.tar.bz2
-RUN rm blender-2.73.tar.bz2
+
+RUN wget -q http://mirror.cs.umn.edu/blender.org/release/Blender2.73/blender-2.73-linux-glibc211-x86_64.tar.bz2 -O /opt/blender/blender-2.73.tar.bz2 & tar jxf blender-2.73.tar.bz2 & rm blender-2.73.tar.bz2
 
 # Install Morse Robotic simulator, stable release
 WORKDIR /usr/src
@@ -64,12 +36,9 @@ RUN mkdir build
 WORKDIR /usr/src/morse/build
 ENV MORSE_BLENDER /opt/blender/blender-2.73-linux-glibc211-x86_64/blender
 
-RUN cmake ..
-RUN make install
-RUN make clean
+RUN cmake .. & make install & make clean
 WORKDIR /
 RUN rm -fr /usr/src/morse
 RUN morse --noaudio check 
 RUN apt-get -y remove build-essential pkg-config cmake
-RUN apt-get -y autoremove
-
+RUN apt-get -y autoremove & rm -v /var/cache/alt/*
