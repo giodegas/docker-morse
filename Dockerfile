@@ -20,7 +20,8 @@ RUN mkdir /opt/blender
 WORKDIR /opt/blender
 
 RUN wget -q http://mirror.cs.umn.edu/blender.org/release/Blender2.73/blender-2.73-linux-glibc211-x86_64.tar.bz2 -O /opt/blender/blender-2.73.tar.bz2 
-RUN tar jxf blender-2.73.tar.bz2 & rm blender-2.73.tar.bz2
+RUN tar jxf blender-2.73.tar.bz2 
+RUN rm blender-2.73.tar.bz2
 
 # Install Morse Robotic simulator, stable release
 WORKDIR /usr/src
