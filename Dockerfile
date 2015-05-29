@@ -1,4 +1,4 @@
-FROM quantumobject/docker-baseimage:latest
+FROM jencryzthers/vboxinsidedocker:latest
 
 MAINTAINER Giovanni De Gasperis @giodegas
 
