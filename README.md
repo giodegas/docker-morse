@@ -1,12 +1,12 @@
-# docker-morse-small
+# docker-morse-vbox
 [Morse](https://github.com/morse-simulator/morse) robotic simulator in a docker container
 
-SMALL release - testing runtime case studies..
+VirtualBox release - testing runtime case studies..
 
 to use it in your [docker](http://docker.com) setup:
 
-    $ docker pull giodegas/morse-small
-    $ docker run -it -e DISPLAY=$DISPLAY giodegas/morse-small morse --noaudio check
+    $ docker pull giodegas/morse-vbox
+    $ docker run -it -e DISPLAY=$DISPLAY giodegas/morse-vbox morse --noaudio check
     
 you should get this output log:
 
