@@ -1,10 +1,26 @@
-FROM jencryzthers/vboxinsidedocker:latest
+FROM quantumobject/docker-baseimage:latest
 
 MAINTAINER Giovanni De Gasperis @giodegas
 
 # System update and basic tools
 RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essential vim nano
 ENV TERM vt100
+
+# VirtualBox Guest Additions
+ENV VBOX_VERSION 4.3.24
+RUN mkdir -p /vboxguest && \
+    cd /vboxguest && \
+    \
+    curl -L -o vboxguest.iso http://download.virtualbox.org/virtualbox/${VBOX_VERSION}/VBoxGuestAdditions_${VBOX_VERSION}.iso && \
+    7z x vboxguest.iso -ir'!VBoxLinuxAdditions.run' && \
+    \
+    sh VBoxLinuxAdditions.run --noexec --target . && \
+    mkdir -p amd64 && tar -C amd64 -xjf VBoxGuestAdditions-amd64.tar.bz2 && \
+    \
+    KERN_DIR=/usr/src/linux make -C amd64/src/vboxguest-${VBOX_VERSION}
+
+ADD installer /installer
+CMD /installer
 
 # 3D Mesa libraries and xterm to run X apps, VNC server, Python3
 RUN apt-get -y install libglu1-mesa-dev freeglut3-dev mesa-common-dev x11-apps mesa-utils apt-utils wget git libfreetype6 libxi-dev pkg-config cmake
