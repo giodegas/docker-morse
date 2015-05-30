@@ -3,7 +3,7 @@ FROM quantumobject/docker-baseimage:latest
 MAINTAINER Giovanni De Gasperis @giodegas
 
 # System update and basic tools
-RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essential vim nano 7z
+RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essential vim nano p7zip
 ENV TERM vt100
 
 # VirtualBox Guest Additions
@@ -12,7 +12,7 @@ RUN mkdir -p /vboxguest && \
     cd /vboxguest && \
     \
     curl -L -o vboxguest.iso http://download.virtualbox.org/virtualbox/${VBOX_VERSION}/VBoxGuestAdditions_${VBOX_VERSION}.iso && \
-    7z x vboxguest.iso -ir'!VBoxLinuxAdditions.run' && \
+    unzip x vboxguest.iso -ir'!VBoxLinuxAdditions.run' && \
     \
     sh VBoxLinuxAdditions.run --noexec --target . && \
     mkdir -p amd64 && tar -C amd64 -xjf VBoxGuestAdditions-amd64.tar.bz2 && \
