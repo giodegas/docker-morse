@@ -12,7 +12,7 @@ RUN mkdir -p /vboxguest && \
     cd /vboxguest && \
     \
     curl -L -o vboxguest.iso http://download.virtualbox.org/virtualbox/${VBOX_VERSION}/VBoxGuestAdditions_${VBOX_VERSION}.iso && \
-    unzip x vboxguest.iso -ir'!VBoxLinuxAdditions.run' && \
+    7z x vboxguest.iso -ir'!VBoxLinuxAdditions.run' && \
     \
     sh VBoxLinuxAdditions.run --noexec --target . && \
     mkdir -p amd64 && tar -C amd64 -xjf VBoxGuestAdditions-amd64.tar.bz2 && \
