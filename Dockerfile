@@ -3,7 +3,10 @@ FROM quantumobject/docker-baseimage:latest
 MAINTAINER Giovanni De Gasperis @giodegas
 
 # System update and basic tools
-RUN apt-get update && apt-get -y upgrade && apt-get -y install curl build-essential vim nano p7zip-full
+RUN apt-get update && apt-get -y upgrade && apt-get -y install curl vim nano p7zip-full
+RUN apt-get -y install build-essential module-assistant
+RUN m-a prepare
+
 ENV TERM vt100
 
 # VirtualBox Guest Additions
