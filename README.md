@@ -37,4 +37,12 @@ if you have problem running under X, debug trying to make x11-apps to launch
     $ docker exec -it <container> /bin/bash
     # xeyes &
     
+## Fastmode graphics
+
+As described in the [morse installation documentation](http://www.openrobots.org/morse/doc/1.2/user/installation.html), using the 
+
+    fastmode=True
+
+in your scene contructors, morse will render you scene in wireframe mode, but some camera sensors will not be available.
+
     
