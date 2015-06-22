@@ -34,4 +34,14 @@ if you have problem running under X, debug trying to make xterm to launch
 
     docker exec -it -e DISPLAY=$DISPLAY giodegas/morse xterm
     
-or use [subuser](https://github.com/subuser-security/subuser)
+or use [subuser](https://github.com/subuser-security/subuser).
+
+## Fastmode graphics
+
+As described in the [morse installation documentation](http://www.openrobots.org/morse/doc/1.2/user/installation.html), using the 
+
+    fastmode=True
+
+in your scene contructors, morse will render you scene in wireframe mode, but some camera sensors will not be available.
+
+
