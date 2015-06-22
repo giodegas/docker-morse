@@ -6,7 +6,8 @@ xvfb release - testing runtime case studies..
 to use it in your [docker](http://docker.com) setup:
 
     $ docker pull giodegas/morse-xvfb
-    $ docker run -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb morse --noaudio check
+    $ docker run -it -e DISPLAY=$DISPLAY giodegas/morse-xvfb /bin/bash
+    # morse --noaudio check
     
 you should get this output log:
 
@@ -24,10 +25,11 @@ you should get this output log:
     * Blender and Morse are using Python 3.4.2. Alright.
     * Your environment is correctly setup to run MORSE.
 
-then you can interact with morse:
+then you can interact with morse the is living in the container:
 
     $ docker start <container>
     $ docker exec -it <container> /bin/bash
+    # export DISPLAY=<your host IP address>:0
     # morse --noaudio create <your_scene>
     # morse --noaudio run <your_scene> -noaudio
 
@@ -35,6 +37,7 @@ if you have problem running under X, debug trying to make x11-apps to launch
 
     $ docker start <container>
     $ docker exec -it <container> /bin/bash
+    # glxinfo
     # xeyes &
     
 ## Fastmode graphics
